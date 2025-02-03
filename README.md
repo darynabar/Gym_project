@@ -1,1 +1,1 @@
-# Gym progect
+# Gym project
