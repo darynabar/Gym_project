@@ -1,12 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from datetime import timedelta
 
 class User(AbstractUser):
     phone_number = models.CharField(max_length=15, unique=True)
     def __str__(self):
         return self.username
 
-# Абонементи
 class Membership(models.Model):
     name = models.CharField(max_length=100)
     DURATION_CHOICES = [
@@ -25,7 +25,7 @@ class Trainer(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     photo = models.CharField(max_length=2083)
-    experience = models.IntegerField()
+    experience = models.CharField(max_length=2083)
     
     SPECIALIZATION_CHOICES = [
         ("personal", "Персональний тренер"),
@@ -38,25 +38,23 @@ class Trainer(models.Model):
     
 class Service(models.Model):
     name = models.CharField(max_length=100)
-    subscription = models.ForeignKey(Membership, on_delete=models.CASCADE) # зовн ключ до таблиці "Абонементи" - "Membership"
+    subscription = models.ForeignKey(Membership, on_delete=models.CASCADE) 
     trainer = models.ForeignKey(Trainer, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.name} ({self.trainer})"
     
 
-# зв'язок користувача з послугами
 class UserService(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="services")
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    date_added = models.DateTimeField(auto_now_add=True)  # коли записався
+    date_added = models.DateTimeField(auto_now_add=True)  
 
     def __str__(self):
         return f"{self.user} - {self.service}"
 
 
 
-# Розклад занять
 class Schedule(models.Model):
     trainer = models.ForeignKey(Trainer, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
@@ -81,14 +79,13 @@ class GymBar(models.Model):
     def __str__(self):
         return f"{self.name} ({self.get_category_display()})"
 
-class Hall(models.Model):
-    name = models.CharField(max_length=100)
-    capacity = models.IntegerField()
+# class Hall(models.Model):
+#     name = models.CharField(max_length=100)
+#     capacity = models.IntegerField()
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
     
-# зв'язок користувача з абонементами
 class UserMembership(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="memberships")
     membership = models.ForeignKey(Membership, on_delete=models.CASCADE)
@@ -107,3 +104,8 @@ class UserMembership(models.Model):
 
     def __str__(self):
         return f"{self.user} - {self.membership} (до {self.end_date})"
+
+class UserSchedule(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE) 
+    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE) 
+    is_attending = models.BooleanField(default=True) 
