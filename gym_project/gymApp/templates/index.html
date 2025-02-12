@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitZone</title>
+    <link rel="stylesheet" href="{% static 'gymApp/styles.css' %}">
+
+    <nav class="navbar">
+        <ul>
+            <li style="color: #387478;   font-family: 'Anton', sans-serif; font-size: 50px; text-transform: uppercase;">FitZone</li>
+            <li style="margin-top: 17px;"><a href="index.html">Розклад</a></li>
+            <li style="margin-top: 17px;"><a href="index.html">Абонименти</a></li>
+            <li style="margin-top: 17px;"><a href="index.html">Тренери</a></li>
+            <li style="margin-top: 17px;"><a href="index.html">Контакти</a></li>
+        </ul>
+    </nav>
+
+</head>
+<body>
+
+    <div class="hero">
+        <div class="overlay">
+            <h1>ОБИРАЙ <span>ЗДОРОВ'Я, СИЛУ ТА БАЛАНС</span> – УСЕ ПОЧИНАЄТЬСЯ ТУТ!</h1>
+        </div>
+    </div>
+
+    <section class="about">
+        <div class="container">
+            <h2>🏋️‍♂️ ПРО НАС</h2>
+            <h3>ТВОЯ СИЛА, ТВОЄ ЗДОРОВ’Я, ТВОЯ МОТИВАЦІЯ!</h3>
+            <p>Ласкаво просимо до <strong>“Energy Gym”</strong> – місця, де народжуються чемпіони та створюються нові можливості! Ми – не просто спортзал, ми твоя друга родина, що допоможе тобі <strong>досягти бажаних результатів</strong>, незалежно від твого рівня підготовки.</p>
+            
+            <h3>🔥 ЧОМУ ОБИРАЮТЬ НАС?</h3>
+            <ul>
+                <li>✔ <strong>Сучасне обладнання</strong> – найновіші тренажери для ефективних тренувань.</li>
+                <li>✔ <strong>Професійні тренери</strong> – індивідуальний підхід до кожного.</li>
+                <li>✔ <strong>Фітнес для всіх</strong> – від новачків до професійних спортсменів.</li>
+                <li>✔ <strong>Зони для всіх видів тренувань</strong> – силові, кардіо, функціональні тренування.</li>
+                <li>✔ <strong>Комфорт та мотивація</strong> – затишна атмосфера та дружня спільнота.</li>
+            </ul>
+
+            <button class="review-btn" onclick="openModal()">Залишити відгук</button>
+
+            <div class="contact-info">
+                <h3>📍 Адреса: м. Рівне, вул. Словацького, 4/6</h3>
+                <h3>📞 Телефон: +380 56 966 02 33</h3>
+                <h3>&#9200; Пн-Пт 7:00 – 21:00</h3>
+                <h3>&#9200; Сб-Нд 8:00 – 18:00</h3>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <h2>📝 Залишити відгук</h2>
+            <input type="text" placeholder="Ваше ім'я">
+            <textarea rows="4" placeholder="Ваш відгук"></textarea>
+            <br>
+            <button class="close-btn" onclick="closeModal()">Надіслати</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("reviewModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("reviewModal").style.display = "none";
+        }
+    </script>
+
+<section class="gallery">
+    <h2>📸 Наші фото</h2>
+    <div class="gallery-container">
+        <img src="https://r2.sportlife.ua/083_A4076_1ad337e555.jpg" alt="Тренажерний зал">
+        <img src="https://aqualviv.com.ua/wp-content/uploads/2024/03/DSC01987-1024x683.jpg" alt="Фітнес зона">
+        <img src="https://lifehacker.ru/wp-content/uploads/2021/01/sp_1613467308.jpg" alt="Кардіо тренажери">
+        <img src="https://5element.ua/i/content/40/5el_service_00246__large.jpg" alt="Групові тренування">
+        <img src="https://static8.depositphotos.com/1053932/851/i/450/depositphotos_8510560-stock-photo-gym-woman-personal-trainer-with.jpg" alt="Найкращі тренери">
+        <img src="https://images.homify.com/v1442337041/p/photo/image/910101/DSC_5369_02_recortada.jpg" alt="Зал для йоги">
+    </div>
+</section>
+
+
+</body>
+</html>

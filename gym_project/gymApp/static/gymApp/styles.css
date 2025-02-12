@@ -1,0 +1,248 @@
+
+body {
+    background-color: #243642;
+    color: #FCE7C8;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    background: url('https://r2.sportlife.ua/LGD_0699_50aba7cfa0.jpg') center/cover no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FCE7C8;
+    padding: 20px;
+}
+
+.overlay h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.overlay h1 span {
+    color: #FCE7C8; 
+}
+
+.about {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #2C4B57;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+h2, h3 {
+    color: #FAD7A0;
+}
+
+ul {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 5px 0;
+}
+
+.contact-info h3 {
+    margin-top: 10px;
+}
+
+/* Стилі для кнопки */
+.review-btn {
+    background-color: #FAD7A0;
+    color: #243642;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.review-btn:hover {
+    background-color: #E0B878;
+}
+
+/* Модальне вікно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #2C4B57;
+    color: #FCE7C8;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal input, .modal textarea {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
+
+.close-btn {
+    background-color: #FAD7A0;
+    color: #243642;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #E0B878;
+}
+
+
+.gallery {
+text-align: center;
+padding: 50px 20px;
+}
+
+.gallery-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
+}
+
+.gallery-container img {
+width: 30%;
+border-radius: 10px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+transition: 0.3s ease-in-out;
+}
+
+.gallery-container img:hover {
+transform: scale(1.05);
+}
+
+.navbar {
+background-color: #243642; /* Темний фон */
+padding: 15px 0;
+text-align: center;
+}
+
+.navbar ul {
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+justify-content: center;
+}
+
+.navbar li {
+margin: 0 15px;
+}
+
+.navbar a {
+text-decoration: none;
+color: #FCE7C8; 
+font-size: 18px;
+font-weight: bold;
+padding: 10px 15px;
+transition: 0.3s;
+}
+
+.navbar a:hover {
+background-color: #FCE7C8;
+color: #243642;
+border-radius: 5px;
+}
+
+/* Основні стилі */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #243642;
+    color: #FCE7C8;
+    margin: 0;
+    padding: 0;
+}
+
+/* Шапка */
+header {
+    background-color: #2C4B57;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+/* Секція тренерів */
+main {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.trainer {
+    display: flex;
+    background-color: #2C4B57;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.trainer img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid #FCE7C8;
+}
+
+.info h2 {
+    color: #FCE7C8;
+    margin-bottom: 5px;
+}
+
+.info p {
+    margin: 5px 0;
+    font-size: 16px;
+}
