@@ -1,0 +1,29 @@
+[
+    {
+        "model": "gymApp.service",
+        "pk": 1,
+        "fields": {
+            "name": "Персональне тренування",
+            "subscription": 1,
+            "trainer": 1
+        }
+    },
+    {
+        "model": "gymApp.service",
+        "pk": 2,
+        "fields": {
+            "name": "Групове заняття з йоги",
+            "subscription": 2,
+            "trainer": 2
+        }
+    },
+    {
+        "model": "gymApp.service",
+        "pk": 3,
+        "fields": {
+            "name": "Кросфіт",
+            "subscription": 3,
+            "trainer": 1
+        }
+    }
+]
