@@ -1,0 +1,22 @@
+[
+    {
+        "model": "gymApp.Schedule",
+        "pk": 1,
+        "fields": {
+            "trainer": 1,
+            "service": 1,
+            "date_time": "2024-02-12T10:00:00Z",
+            "duration": "01:00:00"
+        }
+    },
+    {
+        "model": "gymApp.Schedule",
+        "pk": 2,
+        "fields": {
+            "trainer": 2,
+            "service": 2,
+            "date_time": "2024-02-12T12:00:00Z",
+            "duration": "01:30:00"
+        }
+    }
+]

@@ -1,0 +1,31 @@
+[
+    {
+        "model": "gymApp.membership",
+        "pk": 1,
+        "fields": {
+            "name": "Базовий абонемент",
+            "duration": "monthly",
+            "price": "500.00"
+        }
+    },
+    {
+        "model": "gymApp.membership",
+        "pk": 2,
+        "fields": {
+            "name": "Річний абонемент",
+            "duration": "yearly",
+            "price": "5000.00"
+        }
+    },
+    {
+        "model": "gymApp.membership",
+        "pk": 3,
+        "fields": {
+            "name": "Разове заняття",
+            "duration": "one-time",
+            "price": "100.00"
+        }
+    }
+    
+    
+]
