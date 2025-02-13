@@ -1,12 +1,11 @@
 
 body {
-    background-color: #243642;
-    color: #FCE7C8;
-    font-family: Arial, sans-serif;
+    background-color: #243642 !important;
+    color: #FCE7C8 !important;
+    font-family: Arial, sans-serif !important;
     margin: 0;
     padding: 0;
 }
-
 .hero {
     position: relative;
     width: 100%;
@@ -89,7 +88,7 @@ ul li {
 }
 
 /* Модальне вікно */
-.modal {
+.modal-custom {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -100,7 +99,7 @@ ul li {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.modal-content {
+.modal-content-custom {
     background-color: #2C4B57;
     color: #FCE7C8;
     margin: 15% auto;
@@ -111,7 +110,7 @@ ul li {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-.modal input, .modal textarea {
+.modal-custom input, .modal-custom textarea {
     width: 90%;
     padding: 10px;
     margin-top: 10px;
@@ -120,7 +119,7 @@ ul li {
     font-size: 1rem;
 }
 
-.close-btn {
+.close-btn-custom {
     background-color: #FAD7A0;
     color: #243642;
     font-size: 1rem;
@@ -132,7 +131,7 @@ ul li {
     transition: 0.3s;
 }
 
-.close-btn:hover {
+.close-btn-custom:hover {
     background-color: #E0B878;
 }
 
@@ -168,17 +167,14 @@ text-align: center;
 
 .navbar ul {
 list-style: none;
-padding: 0;
+/* padding: 0;
 margin: 0;
 display: flex;
-justify-content: center;
+justify-content: center; */
 }
 
-.navbar li {
-margin: 0 15px;
-}
 
-.navbar a {
+.nav-a {
 text-decoration: none;
 color: #FCE7C8; 
 font-size: 18px;
@@ -187,7 +183,7 @@ padding: 10px 15px;
 transition: 0.3s;
 }
 
-.navbar a:hover {
+.nav-a:hover {
 background-color: #FCE7C8;
 color: #243642;
 border-radius: 5px;

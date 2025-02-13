@@ -1,18 +1,30 @@
-<nav class="navbar">
-  <ul>
-    <li
-      style="
-        color: #387478;
-        font-family: 'Anton', sans-serif;
-        font-size: 50px;
-        text-transform: uppercase;
-      "
-    >
-      FitZone
+<nav class="navbar w-100 justify-content-center">
+  <ul class="d-flex flex-row align-items-center justify-content-center">
+    <a style="text-decoration: none" href="{% url 'index' %}">
+      <li
+        style="
+          color: #387478;
+          font-family: 'Anton', sans-serif;
+          font-size: 50px;
+          text-transform: uppercase;
+        "
+      >
+        FitZone
+      </li>
+    </a>
+    <li class="my-4 mx-2">
+      <a aria-current="page" class="nav-a" href="{% url 'gym_schedule' %}"
+        >Розклад</a
+      >
     </li>
-    <li style="margin-top: 17px"><a href="index.html">Розклад</a></li>
-    <li style="margin-top: 17px"><a href="index.html">Абонименти</a></li>
-    <li style="margin-top: 17px"><a href="index.html">Тренери</a></li>
-    <li style="margin-top: 17px"><a href="index.html">Контакти</a></li>
+    <li class="my-4 mx-2">
+      <a class="nav-a" href="index.html">Абонименти</a>
+    </li>
+    <li class="my-4 mx-2">
+      <a class="nav-a" href="index.html">Тренери</a>
+    </li>
+    <li class="my-4 mx-2">
+      <a class="nav-a" href="index.html">Контакти</a>
+    </li>
   </ul>
 </nav>
