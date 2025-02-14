@@ -25,5 +25,15 @@
             "subscription": 3,
             "trainer": 1
         }
+    },
+    {
+        "model": "gymApp.service",
+        "pk": 4,
+        "fields": {
+            "name": "Кросфіт+",
+            "subscription": 3,
+            "trainer": 1
+        }
     }
+
 ]

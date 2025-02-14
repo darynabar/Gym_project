@@ -1,1 +1,34 @@
-{% extends 'components/base.html' %} {% block content %}{% endblock %}
+{% extends 'components/base.html' %} {% load static%} {% block content %}
+<h1 class="text-center">Розклад занять FitZone</h1>
+<div>
+  <table class="table table-fixed my-4 rounded">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Час</th>
+        <th scope="col">Пн</th>
+        <th scope="col">Вт</th>
+        <th scope="col">Ср</th>
+        <th scope="col">Чт</th>
+        <th scope="col">Пт</th>
+        <th scope="col">Сб</th>
+        <th scope="col">Нд</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for time, days in schedule_dict.items %}
+      <tr>
+        <th class="">{{ time|time:"H:i" }}</th>
+        {# Виведе у форматі 09:00, 14:30 тощо #} {% for day in days.values %}
+        <td class="text-center">{% if day %}{{ day }}{% else %}-{% endif %}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %} {% block extra_head %}
+<link rel="stylesheet" href="{% static 'gymApp/calendar.css' %}" />
+{% endblock %}
+<!-- {% block extra_scripts %}
+<script src="{% static 'js/calendar.js' %}"></script>
+{% endblock %} -->

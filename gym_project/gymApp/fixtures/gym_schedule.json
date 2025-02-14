@@ -18,5 +18,35 @@
             "date_time": "2024-02-12T12:00:00Z",
             "duration": "01:30:00"
         }
+    },
+    {
+        "model": "gymApp.Schedule",
+        "pk": 3,
+        "fields": {
+            "trainer": 2,
+            "service": 1,
+            "date_time": "2024-02-13T12:00:00Z",
+            "duration": "01:30:00"
+        }
+    },
+    {
+        "model": "gymApp.Schedule",
+        "pk": 4,
+        "fields": {
+            "trainer": 2,
+            "service": 3,
+            "date_time": "2024-02-14T12:00:00Z",
+            "duration": "01:30:00"
+        }
+    },
+    {
+        "model": "gymApp.Schedule",
+        "pk": 5,
+        "fields": {
+            "trainer": 2,
+            "service": 4,
+            "date_time": "2024-02-15T12:00:00Z",
+            "duration": "01:30:00"
+        }
     }
 ]

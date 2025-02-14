@@ -1,5 +1,5 @@
 
-body {
+body, main {
     background-color: #243642 !important;
     color: #FCE7C8 !important;
     font-family: Arial, sans-serif !important;
@@ -56,13 +56,13 @@ h2, h3 {
     color: #FAD7A0;
 }
 
-ul {
+.ul-cust {
     text-align: left;
     list-style: none;
     padding: 0;
 }
 
-ul li {
+.ul-cust li {
     padding: 5px 0;
 }
 

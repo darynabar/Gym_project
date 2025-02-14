@@ -1,0 +1,4 @@
+.table-fixed thead th, .table-fixed tbody td {
+    width: 12.5%; 
+    text-align: center;
+  }
