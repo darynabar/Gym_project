@@ -3,7 +3,7 @@
 <div>
   <table class="table-fixed my-4">
     <thead>
-      <tr class="text-center">
+      <tr class="text-center fs-5">
         <th scope="col">Час</th>
         <th scope="col">Пн</th>
         <th scope="col">Вт</th>
@@ -17,7 +17,7 @@
     <tbody>
       {% for time, days in schedule_dict.items %}
       <tr>
-        <th>{{ time|time:"H:i" }}</th>
+        <th class="fs-5">{{ time|time:"H:i" }}</th>
         {% for day in days.values %} {% if day %}
         <td class="text-center table-cell-info">{{ day }}</td>
         {% else %}
