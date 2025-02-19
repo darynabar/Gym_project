@@ -1,7 +1,7 @@
 {% extends 'components/base.html' %} {% load static%} {% block content %}
 <h1 class="text-center">Розклад занять FitZone</h1>
 <div>
-  <table class="table table-fixed my-4 rounded">
+  <table class="table-fixed my-4">
     <thead>
       <tr class="text-center">
         <th scope="col">Час</th>
@@ -17,10 +17,12 @@
     <tbody>
       {% for time, days in schedule_dict.items %}
       <tr>
-        <th class="">{{ time|time:"H:i" }}</th>
-        {# Виведе у форматі 09:00, 14:30 тощо #} {% for day in days.values %}
-        <td class="text-center">{% if day %}{{ day }}{% else %}-{% endif %}</td>
-        {% endfor %}
+        <th>{{ time|time:"H:i" }}</th>
+        {% for day in days.values %} {% if day %}
+        <td class="text-center table-cell-info">{{ day }}</td>
+        {% else %}
+        <td class="table-row-no-data">-</td>
+        {% endif %} {% endfor %}
       </tr>
       {% endfor %}
     </tbody>
