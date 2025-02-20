@@ -265,3 +265,23 @@ main {
     padding: 5px 15px;
     color: #243642 !important;
 }
+
+
+::-webkit-scrollbar {
+    width: 10px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #5d7f95b2; /*d1b794;*/
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #243642;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+transition: 0.3s;
+scale: 15px;
+}
