@@ -1,5 +1,9 @@
-<nav class="navbar w-100 justify-content-center">
-  <ul class="d-flex flex-row align-items-center justify-content-center ul-cust">
+<nav
+  class="navbar-cust w-100 d-flex flex-row justify-content-between px-4 align-items-center"
+>
+  <ul
+    class="d-flex flex-row align-items-center w-100 justify-content-center ul-cust m-0"
+  >
     <a style="text-decoration: none" href="{% url 'index' %}">
       <li
         style="
@@ -18,7 +22,7 @@
       >
     </li>
     <li class="my-4 mx-2">
-      <a class="nav-a" href="index.html">Абонименти</a>
+      <a class="nav-a" href="index.html">Абонементи</a>
     </li>
     <li class="my-4 mx-2">
       <a class="nav-a" href="{%url 'trainers'%}">Тренери</a>
@@ -26,5 +30,37 @@
     <li class="my-4 mx-2">
       <a class="nav-a" href="index.html">Контакти</a>
     </li>
+    <form class="d-flex w-25" role="search" action="#" method="GET">
+      <input
+        class="form-control me-2 w-100"
+        type="search"
+        placeholder="Пошук..."
+        aria-label="Search"
+        name="q"
+      />
+      <button type="button" class="btn btn-outline-secondary">Пошук</button>
+    </form>
   </ul>
+  <div class="d-flex flex-row justify-content-center align-items-center">
+    {% if user.is_authenticated %}
+    <!-- якщо юзер увійшов в систему -->
+    <a
+      href="#"
+      class="btn btn-outline-secondary mx-2"
+      onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+    >
+      Вийти
+    </a>
+    <form id="logout-form" method="POST" action="#" style="display: none">
+      {% csrf_token %}
+    </form>
+
+    <a href="#" class="btn btn-success mx-4"> Особистий кабінет </a>
+    {% else %}
+    <!-- якщо юзер не увійшов в систему -->
+    <a href="#" class="btn-log">
+      Увійти
+    </a>
+    {% endif %}
+  </div>
 </nav>
