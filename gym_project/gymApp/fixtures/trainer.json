@@ -5,8 +5,8 @@
         "fields": {
             "first_name": "Олександр",
             "last_name": "Петров",
-            "photo": "https://example.com/trainer1.jpg",
-            "experience": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "photo": "https://dii.com.ua/wp-content/uploads/2023/11/%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD-%D0%90%D0%BD%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D0%B2-%D0%BD%D1%8C%D1%8E-%D1%81%D0%B0%D0%B9%D1%82-scaled.jpg",
+            "experience": "Більше 10 років досвіду в персональному тренуванні. Сертифікований спеціаліст з фітнесу.",
             "specialization": "personal"
         }
     },
@@ -15,10 +15,121 @@
         "pk": 2,
         "fields": {
             "first_name": "Марина",
-            "last_name": "Іваненко",
-            "photo": "https://media.istockphoto.com/id/2188681604/photo/leg-stretching.jpg?s=612x612&w=0&k=20&c=lxn9NIVjp-P5EqvSKHPPHE3MJSuALjVepL7YBQlC7wI=",
-            "experience": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            "specialization": "group"
+            "last_name": "Ковальчук",
+            "photo": "https://dii.com.ua/wp-content/uploads/2023/12/%D0%A1%D0%B2%D0%B5%D1%82%D0%B0-%D0%9F%D0%B8%D0%B2%D0%BE%D0%B2%D0%B0%D1%80-1-scaled.jpg",
+            "experience": "Експерт з йоги та пілатесу. Допомагає клієнтам досягати балансу та гармонії.",
+            "specialization": "yoga"
+        }
+    },
+    {
+        "model": "gymApp.Trainer",
+        "pk": 3,
+        "fields": {
+            "first_name": "Ігор",
+            "last_name": "Семенов",
+            "photo": "https://tsunami.com.ua/library/file/drozdik-dmitro.jpg",
+            "experience": "Майстер спорту з бодібілдингу, допомагає клієнтам набрати м'язову масу.",
+            "specialization": "bodybuilding"
+        }
+    },
+    {
+        "model": "gymApp.Trainer",
+        "pk": 4,
+        "fields": {
+            "first_name": "Наталія",
+            "last_name": "Гавриленко",
+            "photo": "https://olympicstyle.com.ua/wp-content/uploads/2023/04/IMG_7732.jpg",
+            "experience": "Тренер з фітнесу та аеробіки. Допомагає підтримувати гарну фізичну форму.",
+            "specialization": "fitness"
+        }
+    },
+    {
+        "model": "gymApp.Trainer",
+        "pk": 5,
+        "fields": {
+            "first_name": "Василь",
+            "last_name": "Мельник",
+            "photo": "https://olympicstyle.com.ua/wp-content/uploads/2021/11/%D0%91%D0%B8%D0%BB%D1%8B%D0%BA-%D0%98%D0%BB%D1%8C%D1%8F_optimized.jpg",
+            "experience": "Тренер з бойових мистецтв. Спеціалізується на боксі та MMA.",
+            "specialization": "martial_arts"
+        }
+    },
+    {
+        "model": "gymApp.Trainer",
+        "pk": 6,
+        "fields": {
+            "first_name": "Ольга",
+            "last_name": "Романова",
+            "photo": "https://interatletika.lutsk.ua/wp-content/uploads/2018/10/Anna-Marunska.jpg",
+            "experience": "Фахівець з реабілітаційного фітнесу, допомагає відновитися після травм.",
+            "specialization": "rehabilitation"
+        }
+    },
+    {
+        "model": "gymApp.Trainer",
+        "pk": 7,
+        "fields": {
+            "first_name": "Денис",
+            "last_name": "Козлов",
+            "photo": "https://dii.com.ua/wp-content/uploads/2023/11/rydvan-scaled.jpg",
+            "experience": "Професійний плавець, проводить тренування з аквафітнесу.",
+            "specialization": "swimming"
+        }
+    },
+    {
+        "model": "gymApp.Trainer",
+        "pk": 8,
+        "fields": {
+            "first_name": "Світлана",
+            "last_name": "Лисенко",
+            "photo": "https://dii.com.ua/wp-content/uploads/2023/12/%D0%94%D0%B0%D1%88%D0%B0-%D0%9A%D0%B8%D1%85%D0%BD%D0%BE-%D1%81%D0%B0%D0%B9%D1%82-scaled.jpg",
+            "experience": "Сертифікований нутриціолог і тренер з функціонального тренінгу.",
+            "specialization": "nutrition"
+        }
+    },
+    {
+        "model": "gymApp.Trainer",
+        "pk": 9,
+        "fields": {
+            "first_name": "Євген",
+            "last_name": "Шевченко",
+            "photo": "https://olympicstyle.com.ua/wp-content/uploads/2021/10/%D0%92%D0%BB%D0%B0%D1%81%D1%8E%D0%BA-%D0%90%D0%BD%D0%B5%D0%B4%D1%80%D0%B5%D0%B9-%D0%A2%D1%80%D0%B5%D0%BD%D0%B5%D1%80_optimized.jpg",
+            "experience": "Фахівець із кросфіту, проводить інтенсивні тренування.",
+            "specialization": "crossfit"
+        }
+    },
+    {
+        "model": "gymApp.Trainer",
+        "pk": 10,
+        "fields": {
+            "first_name": "Тетяна",
+            "last_name": "Дмитренко",
+            "photo": "https://static.tildacdn.com/tild3063-3461-4965-b665-663233316233/DSF04442-retouch.jpg",
+            "experience": "Експерт з гнучкості та стрейчингу. Працює з професійними спортсменами.",
+            "specialization": "stretching"
+        }
+    },
+    {
+        "model": "gymApp.Trainer",
+        "pk": 11,
+        "fields": {
+            "first_name": "Артем",
+            "last_name": "Василенко",
+            "photo": "https://static.tildacdn.com/tild3934-6163-4236-a438-306664626566/IMG_20220421_121316_.jpg",
+            "experience": "Тренер з легкої атлетики, спеціалізується на бігу та кардіо.",
+            "specialization": "running"
+        }
+    },
+    {
+        "model": "gymApp.Trainer",
+        "pk": 12,
+        "fields": {
+            "first_name": "Аліна",
+            "last_name": "Кравченко",
+            "photo": "https://static.tildacdn.com/tild3735-6338-4462-a334-326631623265/IMG_20220421_121154_.jpg",
+            "experience": "Тренер з танцювального фітнесу, проводить Zumba та Latino dance класи.",
+            "specialization": "dance_fitness"
         }
     }
+
 ]

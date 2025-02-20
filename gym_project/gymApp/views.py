@@ -2,6 +2,19 @@ from datetime import timedelta
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Schedule
 from django.utils.timezone import now
+from .models import Trainer
+import json
+
+
+def trainer_detail(request, trainer_id):
+    trainer = Trainer.objects.get(pk=trainer_id)
+    return render(request, "trainer_detail.html", {"trainer": trainer})
+
+def trainers_list(request):
+    trainers = Trainer.objects.all()
+    return render(request, "trainers.html", {"trainers": trainers})
+
+
 
 def index(request):
     posts = Post.objects.all()
