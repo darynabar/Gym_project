@@ -1,0 +1,62 @@
+{% extends 'components/base.html' %} {% load static%} {% block content %}
+    <title>Наші тренери</title>
+    <style>
+       .trainer-card {
+    width: 250px; /* Фіксована ширина */
+    height: 350px; /* Фіксована висота */
+    border: 5px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 45px;
+    display: inline-block;
+    text-align: center;
+    background-color: #2C4B57; /* Додатковий темний фон */
+    color: white; /* Білий текст */
+    border-radius: 10px; /* Закруглені кути */
+    overflow: hidden;
+}
+
+.trainer-card a {
+    color: white; /* Білий колір тексту */
+    text-decoration: none; /* Прибирає підкреслення */
+    font-weight: bold; /* Жирний текст */
+}
+
+.trainer-card a:hover {
+    color: #f0a500; /* Зміна кольору при наведенні */
+}
+
+.trainer-card img {
+    width: 100%; /* Заповнює ширину контейнера */
+    height: auto; /* Автоматична висота */
+    max-height: 230px; /* Не більше 200px у висоту */
+    object-fit: contain; /* Вміщує все зображення без обрізання */
+    border-radius: 10px;
+}
+
+.trainer-card h3 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.trainer-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Наші тренери</h1>
+    
+    {% for trainer in trainers %}
+        <div class="trainer-card">
+            <a href="{% url 'trainer_detail' trainer.pk %}">
+                <img src="{{ trainer.photo }}" alt="{{ trainer.first_name }} {{ trainer.last_name }}">
+                <h3>{{ trainer.first_name }} {{ trainer.last_name }}</h3>
+                <p><strong>Спеціалізація:</strong> {{ trainer.specialization }}</p>
+            </a>
+        </div>
+    {% endfor %}
+{% endblock %}
+
