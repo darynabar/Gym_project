@@ -1,0 +1,29 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% comment %} <h2 class="text-center mb-4">Наші абонементи</h2>
+    <div class="container membership-container">
+        <div class="row justify-content-center">
+            {% for membership in memberships %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="membership-card" style="background-image: url('{{ membership.image.url }}');">
+                    <div class="overlay">
+                        <h3>{{ membership.name }}</h3>
+                        <p>Тривалість: <strong>{{ membership.get_duration_display }}</strong></p>
+                        <p>Ціна: <strong>{{ membership.price }} грн</strong></p>
+                        <a href="#" class="btn btn-primary mt-3">Обрати</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> {% endcomment %}
+{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'gymApp/membership.css' %}">
+{% endblock %}
+
+
+

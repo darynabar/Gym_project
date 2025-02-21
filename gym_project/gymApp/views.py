@@ -1,6 +1,6 @@
 from datetime import timedelta
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Schedule
+from .models import Post, Schedule,Membership
 from django.utils.timezone import now
 from .models import Trainer
 import json
@@ -45,3 +45,6 @@ def gym_schedule(request):
 
     return render(request, "gym_schedule.html", {"schedule_dict": schedule_dict})
 
+def membership_list(request):
+    memberships = Membership.objects.all()
+    return render(request, 'membership_list.html', {'memberships': memberships})
