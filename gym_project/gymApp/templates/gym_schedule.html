@@ -19,7 +19,9 @@
       <tr>
         <th class="fs-5">{{ time|time:"H:i" }}</th>
         {% for day in days.values %} {% if day %}
-        <td class="text-center table-cell-info">{{ day }}</td>
+        <td class="text-center table-cell-info">
+          <a href="{% url 'service_info' day.service.id %}"> {{ day.service.name }} </a>
+        </td>
         {% else %}
         <td class="table-row-no-data">-</td>
         {% endif %} {% endfor %}

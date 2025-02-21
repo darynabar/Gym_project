@@ -21,13 +21,18 @@
 
 .table-cell-info{
   background-color: #3f5963c0;
+}
+.table-cell-info a{
+  text-decoration: none;
   color: #eeeeeee6;
+
 }
 .table-cell-info:hover{
   background-color: #393d45;
   color: #FCE7C8;
   cursor: pointer;
 }
-.table-fixed tbody tr{
-  /* border-bottom: 1px solid #3f5963c0; */
+.table-cell-info a:hover{
+  color: #FCE7C8;
+
 }

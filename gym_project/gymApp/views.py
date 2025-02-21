@@ -1,6 +1,6 @@
 from datetime import timedelta
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Schedule,Membership
+from .models import Post, Schedule, Service
 from django.utils.timezone import now
 from .models import Trainer
 import json
@@ -31,20 +31,25 @@ def coach(request):
 def gym_schedule(request):
     schedule = Schedule.objects.all().order_by("date_time")
 
-    # Отримуємо список унікальних годин початку занять
     time_slots = sorted(set(schedule.values_list("date_time__time", flat=True)))
 
-    # Створюємо структуру даних для розкладу
-    schedule_dict = {time: {day: "" for day in range(1, 8)} for time in time_slots}
+    schedule_dict = {time: {day: None for day in range(1, 8)} for time in time_slots}
 
-    # Заповнюємо даними
     for session in schedule:
         time = session.date_time.time()
-        day_of_week = session.date_time.isoweekday()  # 1 = Пн, 7 = Нд
-        schedule_dict[time][day_of_week] = session.service.name  # Припускаю, що Service має поле name
+        day_of_week = session.date_time.isoweekday() 
+        schedule_dict[time][day_of_week] = session 
 
     return render(request, "gym_schedule.html", {"schedule_dict": schedule_dict})
 
-def membership_list(request):
-    memberships = Membership.objects.all()
-    return render(request, 'membership_list.html', {'memberships': memberships})
+def service_info(request, id):
+    service = get_object_or_404(Service, id=id)
+    schedule = Schedule.objects.filter(service=service) 
+    return render(request, 'service_detail.html', {'service': service, 'schedule': schedule})
+
+
+
+
+
+
+

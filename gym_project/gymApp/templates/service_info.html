@@ -1,1 +1,19 @@
-{% extends 'components/base.html' %} {% load static%} {% block content %}{% endblock %}
+{% extends 'components/base.html' %} {% load static%} {% block content %} {%
+extends 'base.html' %} {% block content %}
+<h1>{{ service.name }}</h1>
+<p>
+  Тренер:
+  <a href="{% url 'trainer_detail' service.trainer.id %}"
+    >{{ service.trainer }}</a
+  >
+</p>
+<h2>Розклад:</h2>
+<ul>
+  {% for entry in schedule %}
+  <li>{{ entry.date_time }} ({{ entry.duration }})</li>
+  {% empty %}
+  <li>Немає запланованих занять</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'gym_schedule' %}">⬅ Назад до розкладу</a>
+{% endblock %} {% endblock %}
