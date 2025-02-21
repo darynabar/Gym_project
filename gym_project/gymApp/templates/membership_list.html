@@ -1,29 +1,79 @@
 {% extends 'components/base.html' %}
 {% load static %}
 
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'gymApp/membership_list.css' %}">
+{% endblock %}
+
 {% block content %}
-    {% comment %} <h2 class="text-center mb-4">Наші абонементи</h2>
-    <div class="container membership-container">
-        <div class="row justify-content-center">
+    <h1 class="text-center mb-4">Наші абонементи</h1>
+    
+    <div class="container">
+        <div class="row">
             {% for membership in memberships %}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="membership-card" style="background-image: url('{{ membership.image.url }}');">
-                    <div class="overlay">
-                        <h3>{{ membership.name }}</h3>
-                        <p>Тривалість: <strong>{{ membership.get_duration_display }}</strong></p>
-                        <p>Ціна: <strong>{{ membership.price }} грн</strong></p>
-                        <a href="#" class="btn btn-primary mt-3">Обрати</a>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <!-- Передня сторона картки -->
+                        <div class="flip-card-front" style="background-image: url('{{ membership.image }}');">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">{{ membership.name }}</h5>
+                                <p class="card-text">Тривалість: {{ membership.get_duration_display }}</p>
+                                <p class="card-text">Ціна: {{ membership.price }} грн</p>
+                            </div>
+                        </div>
+                        <!-- Задня сторона картки -->
+                        <div class="flip-card-back" style="background-image: url('{{ membership.image }}');">
+                            <div class="overlay">
+                                <h5 class="card-title">{{ membership.name }}</h5>
+                                <p class="big">Чудова пропозиція😊</p>
+                                <a href="#" class="btn btn-warning">Обрати</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
-    </div> {% endcomment %}
+    </div>
+
+    <!-- Блок відгуків -->
+    <div class="container reviews-section mt-5">
+        <h3 class="text-center mb-4">Відгуки наших клієнтів ⭐⭐⭐⭐⭐</h3>
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="review-card">
+                    <p>💬 “Чудовий зал! Річний абонемент – це справжня знахідка для мене.”</p>  
+                    <p class="review-author">- Олександр</p>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6">
+                <div class="review-card">
+                    <p>💬 “Разове заняття – супер варіант для тих, хто не має багато часу!”</p>
+                    <p class="review-author">- Ірина</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="container faq-section mt-5">
+        <h3 class="text-center">❓ Часті питання</h3>
+    
+        <div class="faq-item">
+            <div class="faq-question">Чи можна заморозити абонемент?</div>
+            <div class="faq-answer">Так, можна заморозити абонемент на строк до 1 місяця.</div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="faq-question">Чи є знижки для студентів?</div>
+            <div class="faq-answer">Так, у нас діє знижка 10% для студентів.</div>
+        </div>
+    </div>
+    
+
 {% endblock %}
 
-{% block extra_head %}
-    <link rel="stylesheet" href="{% static 'gymApp/membership.css' %}">
+{% block extra_scripts %}
+    <script src="{% static 'gymApp/faq.js' %}"></script>
 {% endblock %}
-
-
-
