@@ -1,9 +1,12 @@
 from datetime import timedelta
+from django.contrib import messages
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth.views import LogoutView
+from gymApp.forms import CustomAuthenticationForm, CustomUserCreationForm
 from .models import Post, Schedule, Service,Membership
 from django.utils.timezone import now
 from .models import Trainer
-import json
+from django.contrib.auth import authenticate, login
 
 
 def trainer_detail(request, trainer_id):
@@ -23,10 +26,6 @@ def index(request):
 def coach(request):
     posts = Post.objects.all()
     return render(request, 'coach.html', {'posts': posts})
-
-# def gym_schedule(request):
-#     schedule = Schedule.objects.all().order_by("date_time")
-#     return render(request, "gym_schedule.html", {"schedule":schedule})
 
 def gym_schedule(request):
     schedule = Schedule.objects.all().order_by("date_time")
@@ -48,7 +47,6 @@ def service_info(request, id):
     return render(request, 'service_info.html', {'service': service, 'schedule': schedule})
 
 def membership_list(request):
-     # Отримуємо всі абонементи
     memberships = Membership.objects.order_by('-price') 
     return render(request, 'membership_list.html', {'memberships': memberships})
 
@@ -68,3 +66,40 @@ def search(request):
     return render(request, "search_results.html", {"query": query, "trainers": trainers, "services": services})
 
 
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("/")
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
+
+class CustomLogoutView(LogoutView):
+    next_page = '/' 
+
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(request, "Ви успішно вийшли із системи.")
+        return super().dispatch(request, *args, **kwargs)
+
+def user_login(request):
+    if request.method == 'POST':
+        form = CustomAuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('/') 
+            else:
+                messages.error(request, 'Невірні дані для входу')
+        else:
+            messages.error(request, 'Будь ласка, перевірте введені дані')
+
+    else:
+        form = CustomAuthenticationForm()
+
+    return render(request, 'registration/login.html', {'form': form})

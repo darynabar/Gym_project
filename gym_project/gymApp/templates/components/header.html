@@ -30,7 +30,12 @@
     <li class="my-4 mx-2">
       <a class="nav-a" href="index.html">Контакти</a>
     </li>
-    <form class="d-flex w-25" role="search" action="{% url 'search' %}" method="GET">
+    <form
+      class="d-flex w-25"
+      role="search"
+      action="{% url 'search' %}"
+      method="GET"
+    >
       <input
         class="form-control me-2 w-100"
         type="search"
@@ -45,22 +50,25 @@
     {% if user.is_authenticated %}
     <!-- якщо юзер увійшов в систему -->
     <a
-      href="#"
+      href="{% url 'logout' %}"
       class="btn btn-outline-secondary mx-2"
       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
     >
       Вийти
     </a>
-    <form id="logout-form" method="POST" action="#" style="display: none">
+    <form
+      id="logout-form"
+      method="POST"
+      action="{% url 'logout' %}"
+      style="display: none"
+    >
       {% csrf_token %}
     </form>
+    <a href="#" class="btn btn-outline-light" style="width: 130px;">Мій профіль</a>
 
-    <a href="#" class="btn btn-success mx-4"> Особистий кабінет </a>
     {% else %}
     <!-- якщо юзер не увійшов в систему -->
-    <a href="#" class="btn-log">
-      Увійти
-    </a>
+    <a href="{% url 'login' %}" class="btn-log"> Увійти </a>
     {% endif %}
   </div>
 </nav>
