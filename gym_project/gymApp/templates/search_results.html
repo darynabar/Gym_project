@@ -1,0 +1,47 @@
+{% extends 'components/base.html' %} {% load static%} {% block content %}
+<div class="d-flex flex-column w-100">
+
+<h1 class="search-title">Результати пошуку для "{{ query }}"</h1>
+
+{% if trainers or services or subscriptions %}
+<div class="search-results">
+  {% for trainer in trainers %}
+  <div class="search-card">
+    <div class="search-info">
+      <a href="{% url 'trainer_detail' trainer.id %}" class="search-name"
+        >{{ trainer.first_name }} {{ trainer.last_name }}</a
+      >
+      <span class="search-category">Тренер</span>
+    </div>
+  </div>
+  {% endfor %} {% for service in services %}
+  <div class="search-card">
+    <div class="search-info">
+      <a href="{% url 'service_info' service.id %}" class="search-name"
+        >{{ service.name }}</a
+      >
+      <span class="search-category">Сервіс</span>
+    </div>
+  </div>
+  {% endfor %} {% for subscription in subscriptions %}
+  <div class="search-card">
+    <div class="search-info">
+      <a href="{% url 'subscriptions' %}" class="search-name"
+        >{{ subscription.name }}</a
+      >
+      <span class="search-category">Абонемент</span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="no-results">Нічого не знайдено</p>
+{% endif %}
+
+<a href="{% url 'index' %}" class="back-home">
+</div>
+
+  {% endblock %} {% block extra_head %}
+  <link rel="stylesheet" href="{% static 'gymApp/search_page.css' %}" />
+  {% endblock %}</a
+>
