@@ -1,19 +1,44 @@
-{% extends 'components/base.html' %} {% load static%} {% block content %} {%
-extends 'base.html' %} {% block content %}
-<h1>{{ service.name }}</h1>
-<p>
-  Тренер:
-  <a href="{% url 'trainer_detail' service.trainer.id %}"
-    >{{ service.trainer }}</a
-  >
-</p>
-<h2>Розклад:</h2>
-<ul>
-  {% for entry in schedule %}
-  <li>{{ entry.date_time }} ({{ entry.duration }})</li>
-  {% empty %}
-  <li>Немає запланованих занять</li>
-  {% endfor %}
-</ul>
-<a href="{% url 'gym_schedule' %}">⬅ Назад до розкладу</a>
-{% endblock %} {% endblock %}
+{% extends 'components/base.html' %} {% load static%} {% block content %}
+<div class="w-75 card service-card-info">
+  <h1 class="card-header">{{ service.name }}</h1>
+  <div class="card-body-cust">
+    <div class="text-service-info">
+      <h4>
+        {{ service.name }} - це унікальний сервіс, доступний у нашому залі за
+        спеціальною підпискою
+        <a href="" class="highlight">{{ service.subscription.name }}</a>.
+        Приєднуйтесь до нас, щоб отримати максимум від тренувань з нашим
+        досвідченим тренером
+        <a
+          href="{% url 'trainer_detail' service.trainer.pk %}"
+          class="highlight"
+          >{{ service.trainer }}</a
+        >. Детальніше:
+        <span>{{ service.trainer.experience }}</span>
+      </h4>
+    </div>
+
+    <img
+      src="{{ service.trainer.photo }}"
+      alt="{{ service.trainer.first_name }} {{ service.trainer.last_name }}"
+    />
+  </div>
+  <div class="schedule-service" style="border-top: 1px solid bisque">
+    <h2>Розклад:</h2>
+    <ul>
+      {% for entry in schedule %}
+      <li>{{ entry.date_time|date:"d.m.Y, H:i" }}
+        ({{ entry.duration }})</li>
+      {% empty %}
+      <li>Немає запланованих занять</li>
+      {% endfor %}
+    </ul>
+
+    <span class="back-to-schedule-link">
+      <a href="{% url 'gym_schedule' %}">⬅ Назад до розкладу</a>
+    </span>
+  </div>
+</div>
+{% endblock %} {% block extra_head %}
+<link rel="stylesheet" href="{% static 'gymApp/service_info.css' %}" />
+{% endblock %}

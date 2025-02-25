@@ -45,7 +45,7 @@ def gym_schedule(request):
 def service_info(request, id):
     service = get_object_or_404(Service, id=id)
     schedule = Schedule.objects.filter(service=service) 
-    return render(request, 'service_detail.html', {'service': service, 'schedule': schedule})
+    return render(request, 'service_info.html', {'service': service, 'schedule': schedule})
 
 
 
