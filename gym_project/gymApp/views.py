@@ -1,5 +1,5 @@
 from datetime import timedelta
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Post, Schedule, Service,Membership
 from django.utils.timezone import now
 from .models import Trainer
@@ -50,7 +50,7 @@ def gym_schedule(request):
 def service_info(request, id):
     service = get_object_or_404(Service, id=id)
     schedule = Schedule.objects.filter(service=service) 
-    return render(request, 'service_detail.html', {'service': service, 'schedule': schedule})
+    return render(request, 'service_info.html', {'service': service, 'schedule': schedule})
 
 def membership_list(request):
      # Отримуємо всі абонементи
@@ -58,6 +58,18 @@ def membership_list(request):
     return render(request, 'membership_list.html', {'memberships': memberships})
 
 
+def search(request):
+    query = request.GET.get("q", "").strip()
+    if not query:
+        return redirect("home")  
 
+    trainers = Trainer.objects.filter(first_name__icontains=query) | Trainer.objects.filter(last_name__icontains=query)
+    
+    services = Service.objects.filter(name__icontains=query)
+
+    if Membership.objects.filter(name__icontains=query).exists():
+        return redirect("subscriptions")  
+
+    return render(request, "search_results.html", {"query": query, "trainers": trainers, "services": services})
 
 

@@ -1,0 +1,58 @@
+.service-card-info{
+    background-color: #344b5a;
+    color: rgba(217, 198, 177, 0.992);
+    border-color: bisque;
+    
+}
+a{
+    color: bisque;
+    text-decoration: none;
+
+}
+.back-to-schedule-link{
+    border: 1px solid rgba(217, 198, 177, 0.992);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.card-header{
+    border-color: bisque !important;
+    background-color: #393d45;
+}
+.service-card-info div{
+
+    border-color: bisque;
+}
+.card-body-cust{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+.card-body-cust img{
+    width: 250px !important;
+    border-radius: 10px;
+    border: 1px solid bisque;
+}
+
+.text-service-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0 0 50px;
+    width: 600px;
+}
+
+.highlight {
+    color: bisque;
+    font-weight: bold; 
+    font: size 40px !important;
+}
+
+
+.schedule-service{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
