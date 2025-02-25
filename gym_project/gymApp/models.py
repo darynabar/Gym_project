@@ -43,7 +43,6 @@ class Membership(models.Model):
         return f"{self.name} ({self.get_duration_display()})"
 
 class Trainer(models.Model):
-   # user = models.ForeignKey(User, related_name='memberships', on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     photo = models.CharField(max_length=2083)
@@ -99,14 +98,7 @@ class GymBar(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.get_category_display()})"
-
-# class Hall(models.Model):
-#     name = models.CharField(max_length=100)
-#     capacity = models.IntegerField()
-
-#     def __str__(self):
-#         return self.name
-    
+ 
 class UserMembership(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="memberships")
     membership = models.ForeignKey(Membership, on_delete=models.CASCADE)
