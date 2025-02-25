@@ -9,6 +9,11 @@ from .models import Trainer
 from django.contrib.auth import authenticate, login
 
 
+
+def page_contact(request):
+    return render(request, 'contacts.html') 
+
+
 def trainer_detail(request, trainer_id):
     trainer = Trainer.objects.get(pk=trainer_id)
     return render(request, "trainer_detail.html", {"trainer": trainer})
