@@ -30,12 +30,13 @@ class User(AbstractUser):
 
 class Membership(models.Model):
     name = models.CharField(max_length=100)
+    image = models.CharField(max_length=2083) 
     DURATION_CHOICES = [
         ("monthly", "Місячний"),
         ("yearly", "Річний"),
         ("one-time", "Разовий"),
     ]
-    duration = models.CharField(max_length=10, choices=DURATION_CHOICES)
+    duration = models.CharField(max_length=10, choices=DURATION_CHOICES,default=1)
     price = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self):

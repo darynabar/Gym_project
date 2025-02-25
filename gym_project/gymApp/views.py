@@ -1,6 +1,6 @@
 from datetime import timedelta
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Schedule, Service
+from .models import Post, Schedule, Service,Membership
 from django.utils.timezone import now
 from .models import Trainer
 import json
@@ -47,7 +47,10 @@ def service_info(request, id):
     schedule = Schedule.objects.filter(service=service) 
     return render(request, 'service_info.html', {'service': service, 'schedule': schedule})
 
-
+def membership_list(request):
+     # Отримуємо всі абонементи
+    memberships = Membership.objects.order_by('-price') 
+    return render(request, 'membership_list.html', {'memberships': memberships})
 
 
 
