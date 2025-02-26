@@ -3,11 +3,11 @@ from django.contrib import messages
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.views import LogoutView
 from gymApp.forms import CustomAuthenticationForm, CustomUserCreationForm
-from .models import Post, Schedule, Service,Membership
+from .models import Post, Schedule, Service,Membership, UserMembership, UserSchedule, UserService
 from django.utils.timezone import now
 from .models import Trainer
 from django.contrib.auth import authenticate, login
-
+from django.contrib.auth.decorators import login_required
 
 
 def page_contact(request):
@@ -108,3 +108,19 @@ def user_login(request):
         form = CustomAuthenticationForm()
 
     return render(request, 'registration/login.html', {'form': form})
+
+
+@login_required
+def user_profile(request):
+    user = request.user
+    memberships = UserMembership.objects.filter(user=user)
+    services = UserService.objects.filter(user=user)
+    schedule = UserSchedule.objects.filter(user=user)
+
+    context = {
+        "user": user,
+        "memberships": memberships,
+        "services": services,
+        "schedule": schedule,
+    }
+    return render(request, "user_profile.html", context)
