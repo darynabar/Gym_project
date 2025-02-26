@@ -113,14 +113,35 @@ def user_login(request):
 @login_required
 def user_profile(request):
     user = request.user
-    memberships = UserMembership.objects.filter(user=user)
+    memberships = UserMembership.objects.filter(user=user).first()
     services = UserService.objects.filter(user=user)
-    schedule = UserSchedule.objects.filter(user=user)
+    user_schedule = UserSchedule.objects.filter(user=user).prefetch_related('schedule')
+    schedule_dict = {}
+
+    for user_sched in user_schedule:
+        schedule = user_sched.schedule
+        time_slot = schedule.date_time.strftime("%H:%M")
+        day_of_week = schedule.date_time.isoweekday() - 1  
+
+        if time_slot not in schedule_dict:
+            schedule_dict[time_slot] = { 
+                0: None,  
+                1: None,  
+                2: None,  
+                3: None,  
+                4: None,  
+                5: None,  
+                6: None   
+            }
+        if day_of_week in schedule_dict[time_slot]:
+            schedule_dict[time_slot][day_of_week] = schedule
+
+    print("User Schedule Dict:", schedule_dict)
 
     context = {
         "user": user,
         "memberships": memberships,
         "services": services,
-        "schedule": schedule,
+        "schedule_dict": schedule_dict,
     }
     return render(request, "user_profile.html", context)

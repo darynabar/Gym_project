@@ -1,7 +1,7 @@
 from gymApp import views
 from django.contrib import admin
 from django.urls import path, include
-from .views import service_info, trainers_list, trainer_detail,membership_list, page_contact
+from .views import service_info, trainers_list, trainer_detail, page_contact
 urlpatterns = [
     path('', views.index, name="index"),
     path('coach/', views.coach, name="coach"),
@@ -12,11 +12,12 @@ urlpatterns = [
     path("membership/", views.membership_list, name="membership_list"), 
     path("membership_list/", views.membership_list, name="membership_list"),
     path('service/<int:id>/', service_info, name='service_info'),
-    path('contacts/', page_contact, name='contacts')
+    path('contacts/', page_contact, name='contacts'),
     path('search/', views.search, name='search'),
     path("register/", views.register, name='register'),
     path('logout/', views.CustomLogoutView.as_view(), name='logout'),
-    path('login/', views.user_login, name='login')
+    path('login/', views.user_login, name='login'),
+    path("profile/", views.user_profile, name="user_profile"),
 ]
 
 
