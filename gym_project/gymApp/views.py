@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import timedelta,date
 from django.contrib import messages
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.views import LogoutView
@@ -145,3 +145,25 @@ def user_profile(request):
         "schedule_dict": schedule_dict,
     }
     return render(request, "user_profile.html", context)
+@login_required
+def get_membership(request):
+    if request.method == "POST":
+        membership_id = request.POST.get("membership_id")
+        membership = Membership.objects.get(id=membership_id)
+        user = request.user
+        
+        # Дата закінчення залежно від тривалості
+        if membership.duration == "monthly":
+            end_date = date.today() + timedelta(days=30)
+        elif membership.duration == "yearly":
+            end_date = date.today() + timedelta(days=365)
+        else:
+            end_date = date.today()
+        
+        # Створення запису абонемента для користувача
+        UserMembership.objects.create(user=user, membership=membership, end_date=end_date)
+
+        return redirect('membership_success')  # Перенаправлення на сторінку успіху
+
+def membership_success(request):
+    return render(request, 'membership_success.html')

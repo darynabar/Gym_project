@@ -1,0 +1,12 @@
+{% extends 'components/base.html' %}
+
+{% block content %}
+    <div class="container text-center my-5">
+        <div class="alert alert-success">
+            <h1 class="display-4">🎉 Вітаємо!</h1>
+            <p class="lead">Ви успішно оформили абонемент! Ми раді бачити вас серед наших клієнтів. 💪</p>
+            <a href="{% url 'membership_list' %}" class="btn btn-outline-secondary">Повернутися до абонементів</a>
+        </div>
+    </div>
+{% endblock %}
+
