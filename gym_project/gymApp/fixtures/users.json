@@ -1,0 +1,59 @@
+[
+    {
+        "model": "gymApp.user",
+        "pk": 2,
+        "fields":{
+            "username":"test_username",
+            "email":"test_email@gmail.com",
+            "phone_number":"0968524578",
+            "password":"User_test1"
+        }
+
+    },
+    {
+        "model":"gymApp.UserService",
+        "pk":1,
+        "fields":{
+            "user":3,
+            "service":3,
+            "date_added":"2025-02-26T12:00:00Z"
+        }
+    },
+    {
+        "model":"gymApp.UserService",
+        "pk":2,
+        "fields":{
+            "user":3,
+            "service":2,
+            "date_added":"2025-02-20T12:00:00Z"
+        }
+    },
+    {
+        "model":"gymApp.UserMembership",
+        "pk":1,
+        "fields":{
+            "user":3,
+            "membership":2,
+            "start_date":"2025-02-20",
+            "end_date":"2026-02-20"
+        }
+    },
+    {
+        "model": "gymApp.UserSchedule",
+        "pk": 1,
+        "fields": {
+            "user": 3,
+            "schedule": 1,
+            "is_attending": true
+        }
+    },
+    {
+        "model": "gymApp.UserSchedule",
+        "pk": 2,
+        "fields": {
+            "user": 3,
+            "schedule": 3,
+            "is_attending": false
+        }
+    }
+]
