@@ -304,3 +304,16 @@ main {
 transition: 0.3s;
 scale: 15px;
 }
+
+
+.btn-my-profile {
+    display: inline-block !important;
+    width: 120px !important;
+    padding: 10px 20px !important;
+    border: 1px solid #FAD7A0 !important;
+    border-radius: 5px !important;
+    background-color: #243642 !important;
+    color: #FAD7A0 !important;
+    text-align: center !important;
+    text-decoration: none !important; 
+}

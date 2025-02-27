@@ -1,0 +1,46 @@
+{% extends 'components/base.html' %} {% block content %}
+<div class="d-flex flex-column w-75">
+  <h2 class="text-center mb-4">Вхід</h2>
+  <div class="d-flex justify-content-center">
+    <form
+      method="post"
+      enctype="multipart/form-data"
+      style="width: 50%"
+      class="d-flex flex-column align-items-center"
+    >
+      {% csrf_token %}
+
+      <div class="mb-3 w-100">
+        <label class="form-label">{{ form.username.label }}</label>
+        {{ form.username }} {% if form.username.errors %}
+        <div class="text-danger">
+          {% for error in form.username.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3 w-100">
+        <label class="form-label">{{ form.password.label }}</label>
+        {{ form.password }} {% if form.password.errors %}
+        <div class="text-danger">
+          {% for error in form.password.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-outline-secondary">Увійти</button>
+      </div>
+    </form>
+  </div>
+
+  <p class="text-center mt-3">
+    Ще не зареєстровані? <a href="{% url 'register' %}" style="text-decoration: none; color: bisque;">Зареєструйтесь</a>
+  </p>
+</div>
+
+{% endblock %}
