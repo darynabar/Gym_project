@@ -1,0 +1,83 @@
+{% extends 'components/base.html' %} {% block content %}
+<div class="d-flex flex-column w-75">
+  <h2 class="text-center mb-4">Зареєструйтесь</h2>
+  <div class="d-flex justify-content-center">
+    <form
+      method="post"
+      enctype="multipart/form-data"
+      style="width: 50%"
+      class="d-flex flex-column align-items-center"
+    >
+      {% csrf_token %}
+
+      <div class="mb-3 w-100 mt-2">
+        <label class="form-label">{{ form.username.label }}</label>
+        {{ form.username }} {% if form.username.errors %}
+        <div class="text-danger">
+          {% for error in form.username.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3 w-100">
+        <label class="form-label">{{ form.email.label }}</label>
+        {{ form.email }} {% if form.email.errors %}
+        <div class="text-danger">
+          {% for error in form.email.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3 w-100">
+        <label class="form-label">{{ form.phone_number.label }}</label>
+        {{ form.phone_number }} {% if form.phone_number.errors %}
+        <div class="text-danger">
+          {% for error in form.phone_number.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3 w-100">
+        <label class="form-label">{{ form.password1.label }}</label>
+        {{ form.password1 }} {% if form.password1.errors %}
+        <div class="text-danger">
+          {% for error in form.password1.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3 w-100">
+        <label class="form-label">{{ form.password2.label }}</label>
+        {{ form.password2 }} {% if form.password2.errors %}
+        <div class="text-danger">
+          {% for error in form.password2.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-outline-secondary">
+          Зареєструватись
+        </button>
+      </div>
+      <p class="text-center mt-3">
+        Вже є акаунт?
+        <a href="{% url 'login' %}" style="text-decoration: none; color: bisque"
+          >Увійти</a
+        >
+      </p>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

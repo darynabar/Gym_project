@@ -27,7 +27,11 @@
                             <div class="overlay">
                                 <h5 class="card-title">{{ membership.name }}</h5>
                                 <p class="big">Чудова пропозиція😊</p>
-                                <a href="#" class="btn btn-warning">Обрати</a>
+                                <form method="post" action="{% url 'get_membership' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="membership_id" value="{{ membership.id }}">
+                                    <button type="submit" class="btn btn-warning">Обрати</button>
+                                </form>
                             </div>
                         </div>
                     </div>
