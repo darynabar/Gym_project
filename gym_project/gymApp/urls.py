@@ -1,7 +1,8 @@
 from gymApp import views
 from django.contrib import admin
 from django.urls import path, include
-from .views import service_info, trainers_list, trainer_detail, page_contact
+
+from .views import service_info, trainers_list, trainer_detail, page_contact,get_membership,membership_success
 urlpatterns = [
     path('', views.index, name="index"),
     path('coach/', views.coach, name="coach"),
@@ -18,6 +19,8 @@ urlpatterns = [
     path('logout/', views.CustomLogoutView.as_view(), name='logout'),
     path('login/', views.user_login, name='login'),
     path("profile/", views.user_profile, name="user_profile"),
+    path("get-membership/", get_membership, name="get_membership"),
+    path('membership-success/', membership_success, name='membership_success')
 ]
 
 
